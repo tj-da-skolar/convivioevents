@@ -226,7 +226,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #ffffff;
+  color: #333333;
   background-color: #ffffff;
 
 }
@@ -786,7 +786,7 @@ h4 {
 }
 
 h5 {
-  font-size: 120%;
+  font-size: 14px;
 }
 
 h6 {
@@ -6318,7 +6318,13 @@ span.name {
     text-align: center;
 	color: #ffffff;
   }
-  
+
+#copyright-inner
+  {
+    border-top: solid 2px #000000;
+    text-align: center;
+	color: #000000;
+  }
   #category {
   
 	color: #ffffff;
