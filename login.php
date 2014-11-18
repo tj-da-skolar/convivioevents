@@ -2,7 +2,7 @@
 		session_start();
 	
 	$_SESSION['host'] = "tcp:sh6p718bkv.database.windows.net";
-	$_SESSION['user'] = "official_convivio@yahoo.com@sh6p718bkv";
+	$_SESSION['user'] = "official_convivio@yahoo.com"@sh6p718bkv;
 	$_SESSION['pass'] = "Celebrate18";
 	$_SESSION['db'] = "convivio";
 	
