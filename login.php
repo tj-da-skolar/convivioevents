@@ -1,21 +1,12 @@
 <?php
 		session_start();
 	
-	$_SESSION['host'] = "tcp:sh6p718bkv.database.windows.net";
-	$_SESSION['user'] = "official_convivio@yahoo.com@sh6p718bkv";
-	$_SESSION['pass'] = "Celebrate18";
+	$_SESSION['host'] = "localhost";
+	$_SESSION['user'] = "root";
+	$_SESSION['pass'] = "";
 	$_SESSION['db'] = "convivio";
 	
-	//$con = mysql_connect($_SESSION['host'], $_SESSION['user'], $_SESSION['pass']);
-	
-	try{
-		$con = new PDO( "sqlsrv:Server= $_SESSION['host'] ; Database = $_SESSION['db'] ", $user, $pass);
-		$con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-	}
-	catch(Exception $e){
-		die(print_r($e));
-	}
-	
+	$con = mysql_connect($_SESSION['host'], $_SESSION['user'], $_SESSION['pass']);
 	//Close connection when it can't connect to MySQL
 	if(!$con) {
 		die('Could not connect'. mysql_error());

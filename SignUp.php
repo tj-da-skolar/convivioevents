@@ -3,9 +3,9 @@
 
 	session_start();
 	
-	$_SESSION['host'] = "tcp:sh6p718bkv.database.windows.net";
-	$_SESSION['user'] = "official_convivio@yahoo.com@sh6p718bkv";
-	$_SESSION['pass'] = "Celebrate18";
+	$_SESSION['host'] = "localhost";
+	$_SESSION['user'] = "root";
+	$_SESSION['pass'] = "";
 	$_SESSION['db'] = "convivio";
 
 	$con = mysql_connect($_SESSION['host'], $_SESSION['user'], $_SESSION['pass']);
@@ -57,6 +57,7 @@
       //header('Location: SignUp.php?error=TRUE');
 	  echo "<script type='text/javascript'>
        alert('Error, your username or email are already in use');
+	    window.location.href='SignUp.html';
     </script>";
       exit;
     }    
