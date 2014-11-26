@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2014 at 04:03 PM
+-- Generation Time: Nov 24, 2014 at 04:45 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -28,22 +28,46 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `event` (
   `eventID` int(11) NOT NULL AUTO_INCREMENT,
-  `eventName` varchar(20) NOT NULL,
+  `eventName` varchar(30) NOT NULL,
   `eventUserID` int(11) NOT NULL,
   PRIMARY KEY (`eventID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `event`
+--
+
+INSERT INTO `event` (`eventID`, `eventName`, `eventUserID`) VALUES
+(1, 'MyEvent', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `owner`
+--
+
+CREATE TABLE IF NOT EXISTS `owner` (
+  `ownerID` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `companyName` varchar(30) NOT NULL,
+  PRIMARY KEY (`ownerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `eventlog`
+-- Table structure for table `package`
 --
 
-CREATE TABLE IF NOT EXISTS `eventlog` (
+CREATE TABLE IF NOT EXISTS `package` (
+  `packageID` int(11) NOT NULL AUTO_INCREMENT,
   `eventID` int(11) NOT NULL,
-  `supplierID` int(11) NOT NULL,
-  `DateBooked` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `datebooked` int(11) NOT NULL,
+  `SupplierID` int(11) NOT NULL,
+  PRIMARY KEY (`packageID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -53,8 +77,9 @@ CREATE TABLE IF NOT EXISTS `eventlog` (
 
 CREATE TABLE IF NOT EXISTS `supplier` (
   `supplierID` int(11) NOT NULL AUTO_INCREMENT,
-  `supplierName` varchar(20) NOT NULL,
+  `supplierName` varchar(30) NOT NULL,
   `supplierType` int(11) NOT NULL,
+  `OwnerID` int(11) NOT NULL,
   PRIMARY KEY (`supplierID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -66,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `supplier` (
 
 CREATE TABLE IF NOT EXISTS `suppliertype` (
   `supplierTypeID` int(11) NOT NULL AUTO_INCREMENT,
-  `supplierTypeName` varchar(20) NOT NULL,
+  `supplierTypeName` varchar(30) NOT NULL,
   PRIMARY KEY (`supplierTypeID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
@@ -90,12 +115,11 @@ INSERT INTO `suppliertype` (`supplierTypeID`, `supplierTypeName`) VALUES
 
 CREATE TABLE IF NOT EXISTS `user` (
   `userID` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `firstName` varchar(20) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `firstName` varchar(30) NOT NULL,
   `lastName` varchar(30) NOT NULL,
-  `email` varchar(20) NOT NULL,
-  `userType` int(11) NOT NULL,
+  `email` varchar(30) NOT NULL,
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
@@ -103,30 +127,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`userID`, `username`, `password`, `firstName`, `lastName`, `email`, `userType`) VALUES
-(1, 'marvin', '1234', 'Marvin', 'Suangco', 'marvin_suangco@yahoo', 1),
-(2, 'qwe', '12', 'qwer', 'qwer', 'qwrrt', 1),
-(3, 'we', '123', 'me', 'you', 'me@example.com', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `usertype`
---
-
-CREATE TABLE IF NOT EXISTS `usertype` (
-  `userTypeID` int(11) NOT NULL AUTO_INCREMENT,
-  `userTypeString` varchar(20) NOT NULL,
-  PRIMARY KEY (`userTypeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `usertype`
---
-
-INSERT INTO `usertype` (`userTypeID`, `userTypeString`) VALUES
-(1, 'Organizer'),
-(2, 'Supplier');
+INSERT INTO `user` (`userID`, `username`, `password`, `firstName`, `lastName`, `email`) VALUES
+(1, 'marvin', '1234', 'Marvin', 'Suangco', 'marvin_suangco@yahoo.com'),
+(2, 'qwe', '12', 'qwer', 'qwer', 'qwrrt'),
+(3, 'we', '123', 'me', 'you', 'me@example.com');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

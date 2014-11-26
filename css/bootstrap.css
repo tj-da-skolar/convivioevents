@@ -226,7 +226,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #333333;
+  color: #000000;
   background-color: #ffffff;
 
 }
@@ -786,7 +786,7 @@ h4 {
 }
 
 h5 {
-  font-size: 100%;
+  font-size: 120%;
 }
 
 h6 {
@@ -6250,6 +6250,10 @@ a.fancybox:hover img {
 	font-family: 'Raleway', sans-serif;
 }
 
+div.whiteText {
+	color: #ffffff;
+}
+
 .navbar .navbar-inverse {
 
 	background-color: #FFDFFF;
@@ -6329,10 +6333,11 @@ span.name {
     text-align: center;
 	color: #000000;
   }
-  #category {
+
+#category {
   
 	color: #ffffff;
-  }
+}
   
 #eventsUserName {
 	

@@ -18,6 +18,12 @@
 	//Connect to the database
 	mysql_select_db($_SESSION['db'], $con);
 		echo ' conn';
+		
+		if($_SESSION['username']) {
+		header('Location: Events.php');
+		exit;
+	}
+		
 	//Checks if a value has been set
 	 if(isset($_POST['username'])) {
 		//Gets the POST value with the user presses Log In/Submit Button
@@ -31,7 +37,7 @@
 	 	if($res = mysql_query($sql)){
 			echo 'Success';
 			$_SESSION['username'] = $username;
-			header('Location: good.html');
+			header('Location: HairAndMakeup.php');
 						
 		}else{
 			echo ' failed';
