@@ -6254,6 +6254,11 @@ div.whiteText {
 	color: #ffffff;
 }
 
+.thickerText {
+
+	font-weight: 600;
+}
+
 .navbar .navbar-inverse {
 
 	background-color: #FFDFFF;
